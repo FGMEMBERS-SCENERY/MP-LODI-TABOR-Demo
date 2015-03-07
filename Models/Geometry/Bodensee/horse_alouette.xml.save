@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>horse_mk.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>head</object-name>
+    <object-name>neck</object-name>
+    <object-name>chest</object-name>
+    <object-name>pelvic</object-name>
+    <object-name>tail</object-name>
+    <object-name>fr.001</object-name>
+    <object-name>fr.002</object-name>
+    <object-name>fr.003</object-name>
+    <object-name>fr.004</object-name>
+    <object-name>fr.005</object-name>
+    <object-name>fl.001</object-name>
+    <object-name>fl.002</object-name>
+    <object-name>fl.003</object-name>
+    <object-name>fl.004</object-name>
+    <object-name>fl.005</object-name>    
+    <object-name>br.001</object-name>
+    <object-name>br.002</object-name>
+    <object-name>br.003</object-name>
+    <object-name>br.004</object-name>
+    <object-name>br.005</object-name>
+    <object-name>br.006</object-name>
+    <object-name>bl.001</object-name>
+    <object-name>bl.002</object-name>
+    <object-name>bl.003</object-name>
+    <object-name>bl.004</object-name>
+    <object-name>bl.005</object-name>
+    <object-name>bl.006</object-name>
+    <texture>white.png</texture>
+
+
+  </animation>
+
+
+  <!-- Nasal code -->
+	<nasal>
+		<load>
+			<![CDATA[
+			print("Loading Alouette ", cmdarg().getPath());
+			var loopid = 0;
+
+			# timer function, every 0.5 to 1.5 seconds, to keep horse at ground level
+			var horse_main_loop = func(id, myhorseNodeName, oldalt) {
+				id == loopid or return;
+
+        #bhugh, update altitude to keep moving horses at ground level the ground	
+				var lat = getprop(""~myhorseNodeName~"/position/latitude-deg");
+        var lon = getprop(""~myhorseNodeName~"/position/longitude-deg");
+        var info = geodinfo(lat, lon);
+        
+        #set the pitch angle of the horse to (approx.) match the slope.
+        #since we don't know exactly how long it has been since the last movement
+        #or how far we have traveled this is a bit of a guess
+        var alt=info[0];
+        if (alt==nil) alt=0;
+
+print (alt);
+       
+        var pitchmult=getprop ( myhorseNodeName~"/controls/constants/pitch-mult");
+        var airspeed=getprop ( myhorseNodeName~"/velocities/true-airspeed-kt");
+        if (airspeed == 0 or airspeed==nil) airspeed=1.2; #lets avoid div by zero
+        var pitchangle=(alt-oldalt) * pitchmult * 6/1.2; #we calibrated this to airspeed = 6 kts
+        
+        
+        var oldpitchangle=getprop ( myhorseNodeName~"/orientation/pitch-deg");
+        if (oldpitchangle==nil) oldpitchangle=0;
+        var diff=pitchangle-oldpitchangle;
+        if (abs(diff)>6) {
+          if(diff>0) pitchangle=oldpitchangle + 6;
+          else pitchangle=oldpitchangle -6;
+        }
+        #horses seem to sink into the hillside when climbing a hill.  Correction for that, adding a little more when going up (pitchangle>0):
+        var altaddmult=getprop ( myhorseNodeName~"/controls/constants/altadd-mult");
+        var altadd=3;
+        if  ( pitchangle > 0 ) altadd = altadd + pitchangle * altaddmult;
+        if ( altadd > 10) altadd=10; # more than 10 feet above ground we'll have the opposite problem
+        
+        setprop (""~myhorseNodeName~"/orientation/pitch-deg", pitchangle );
+                
+        setprop (""~myhorseNodeName~"/controls/flight/target-alt", alt/0.3048 + altadd);
+        setprop (""~myhorseNodeName~"/position/altitude-ft", alt/0.3048 + altadd);
+        # add rand() so that all horses don't do this function simultaneously 
+				settimer(func { horse_main_loop(id, myhorseNodeName, alt); }, 0.5 + rand());
+			}
+
+			var horse_init = func() {
+				# Datas of this horse are under: cmdarg().getPath()
+				var horseNodePath = cmdarg().getPath();
+				var horse = cmdarg();
+        print("Dieses Pferd heisst. ", horse.getNode("name").getValue());
+        # Rename the horse
+        horse.getNode("name").setValue("Hamster");
+        print("Und nun heisst es: ", horse.getNode("name").getValue());
+				
+			}
+			
+			horse_init();
+			
+
+			]]>
+		</load>
+		<unload>
+			<![CDATA[
+			print("Unload Alouette.");
+			loopid += 1;
+			]]>
+		</unload>
+ </nasal>  
+
+
+</PropertyList>

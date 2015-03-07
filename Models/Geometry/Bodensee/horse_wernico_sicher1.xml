@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>horse_mk.ac</path>
+
+	<animation>
+		<enable-hot type="bool">false</enable-hot>
+	</animation>
+
+	<model>
+		<path>Models/Geometry/Bodensee/dust.xml</path>
+		<name>dust</name>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+			<heading-deg>0</heading-deg>
+		</offsets>
+	</model>
+
+  <animation>
+    <type>material</type>
+    <object-name>head</object-name>
+    <object-name>neck</object-name>
+    <object-name>chest</object-name>
+    <object-name>pelvic</object-name>
+    <object-name>tail</object-name>
+    <object-name>fr.001</object-name>
+    <object-name>fr.002</object-name>
+    <object-name>fr.003</object-name>
+    <object-name>fr.004</object-name>
+    <object-name>fr.005</object-name>
+    <object-name>fl.001</object-name>
+    <object-name>fl.002</object-name>
+    <object-name>fl.003</object-name>
+    <object-name>fl.004</object-name>
+    <object-name>fl.005</object-name>    
+    <object-name>br.001</object-name>
+    <object-name>br.002</object-name>
+    <object-name>br.003</object-name>
+    <object-name>br.004</object-name>
+    <object-name>br.005</object-name>
+    <object-name>br.006</object-name>
+    <object-name>bl.001</object-name>
+    <object-name>bl.002</object-name>
+    <object-name>bl.003</object-name>
+    <object-name>bl.004</object-name>
+    <object-name>bl.005</object-name>
+    <object-name>bl.006</object-name>
+    <texture>brown.png</texture>
+  </animation>
+<!--
+ <animation>
+  <type>timed</type>
+  <object-name>fr.002</object-name>
+  <object-name>fr.003</object-name>
+  <object-name>fr.001</object-name>
+  <object-name>fr.004</object-name>
+  <object-name>fr.005</object-name>
+  <use-personality type="bool">true</use-personality>
+  <branch-duration-sec>0.3</branch-duration-sec>
+  <branch-duration-sec>0.15</branch-duration-sec>
+  <branch-duration-sec>0.15</branch-duration-sec>
+  <branch-duration-sec>0.3</branch-duration-sec>
+  <branch-duration-sec>0.3</branch-duration-sec>
+ </animation>
+
+ <animation>
+  <type>timed</type>
+  <object-name>fl.002</object-name>
+  <object-name>fl.003</object-name>
+  <object-name>fl.004</object-name>
+  <object-name>fl.005</object-name>
+  <object-name>fl.001</object-name>
+  <use-personality type="bool">true</use-personality>
+  <branch-duration-sec>0.3</branch-duration-sec>
+  <branch-duration-sec>0.15</branch-duration-sec>
+  <branch-duration-sec>0.15</branch-duration-sec>
+  <branch-duration-sec>0.3</branch-duration-sec>
+  <branch-duration-sec>0.3</branch-duration-sec>
+ </animation>
+-->
+
+ <animation>
+  <type>timed</type>
+  <object-name>fr.002</object-name>
+  <object-name>fr.003</object-name>
+  <object-name>fr.001</object-name>
+  <object-name>fr.004</object-name>
+  <object-name>fr.005</object-name>
+  <use-personality type="bool">true</use-personality>
+  <branch-duration-sec>0.3</branch-duration-sec>
+  <branch-duration-sec>0.15</branch-duration-sec>
+  <branch-duration-sec>0.15</branch-duration-sec>
+  <branch-duration-sec>0.3</branch-duration-sec>
+  <branch-duration-sec>0.3</branch-duration-sec>
+ </animation>
+
+ <animation>
+  <type>timed</type>
+  <object-name>fl.002</object-name>
+  <object-name>fl.003</object-name>
+  <object-name>fl.004</object-name>
+  <object-name>fl.005</object-name>
+  <object-name>fl.001</object-name>
+  <use-personality type="bool">true</use-personality>
+  <branch-duration-sec>0.3</branch-duration-sec>
+  <branch-duration-sec>0.15</branch-duration-sec>
+  <branch-duration-sec>0.15</branch-duration-sec>
+  <branch-duration-sec>0.3</branch-duration-sec>
+  <branch-duration-sec>0.3</branch-duration-sec>
+ </animation>
+
+ <animation>
+  <type>timed</type>
+  <object-name>br.001</object-name>
+  <object-name>br.002</object-name>
+  <object-name>br.003</object-name>
+  <object-name>br.004</object-name>
+  <object-name>br.005</object-name>
+  <object-name>br.006</object-name>
+  <use-personality type="bool">true</use-personality>
+  <branch-duration-sec>0.2</branch-duration-sec>
+  <branch-duration-sec>0.2</branch-duration-sec>
+  <branch-duration-sec>0.2</branch-duration-sec>
+  <branch-duration-sec>0.2</branch-duration-sec>
+  <branch-duration-sec>0.2</branch-duration-sec>
+  <branch-duration-sec>0.2</branch-duration-sec>
+ </animation>
+
+ <animation>
+  <type>timed</type>
+  <object-name>bl.001</object-name>
+  <object-name>bl.002</object-name>
+  <object-name>bl.003</object-name>
+  <object-name>bl.004</object-name>
+  <object-name>bl.005</object-name>
+  <object-name>bl.006</object-name>
+  <use-personality type="bool">true</use-personality>
+  <branch-duration-sec>0.2</branch-duration-sec>
+  <branch-duration-sec>0.2</branch-duration-sec>
+  <branch-duration-sec>0.2</branch-duration-sec>
+  <branch-duration-sec>0.2</branch-duration-sec>
+  <branch-duration-sec>0.2</branch-duration-sec>
+  <branch-duration-sec>0.2</branch-duration-sec>
+ </animation>
+
+
+
+
+</PropertyList>

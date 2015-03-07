@@ -1,0 +1,35 @@
+26X FNS Foch
+26Y FNS Clemenceau
+27X FNS Charles_de_Gaulle
+28X USS San Antonio
+29X USS Nimitz
+29X USS Vinson
+30Y USS Eisenhower
+
+31Y MSUBS 
+32X Lodi 
+32Y Tabor
+
+40X ESSO1 
+41X ESSO2 
+42X ESSO3 
+50X TEXACO1 
+51X TEXACO2 
+52X TEXACO3
+ 
+60X MOBIL1 
+61X MOBIL2 
+62X MOBIL3
+ 
+1X  D-MKF1 
+2X  D-WILLI 
+3X  3-m 
+4X  D-AHGM 
+5X  D-IHGM 
+6X  D-ABBA 
+7X  HanSolo 
+8X  buster 
+9X  D-HUND 
+10X Michat 
+11X D-STHO 
+12X Horse 
